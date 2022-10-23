@@ -2,7 +2,7 @@
   "name": "black-py",
   "displayName": "Black",
   "description": "Format Python code with black.",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "icon": "image/icon.png",
   "preview": false,
   "author": {
@@ -10,40 +10,40 @@
     "url": "https://github.com/34j"
   },
   "serverInfo": {
-      "name": "Black",
-      "module": "black-py"
+    "name": "Black",
+    "module": "black-py"
   },
   "publisher": "mikoz",
   "license": "MIT",
   "homepage": "https://github.com/34j/vscode-black",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/34j/vscode-black.git"
+    "type": "git",
+    "url": "https://github.com/34j/vscode-black.git"
   },
   "bugs": {
-      "url": "https://github.com/34j/vscode-black/issues"
+    "url": "https://github.com/34j/vscode-black/issues"
   },
   "galleryBanner": {
-      "color": "#1e415e",
-      "theme": "dark"
+    "color": "#1e415e",
+    "theme": "dark"
   },
   "keywords": [
-      "python",
-      "black-py"
+    "python",
+    "black-py"
   ],
   "engines": {
-      "vscode": "^1.70.0"
+    "vscode": "^1.70.0"
   },
   "categories": [
-      "Formatters"
+    "Formatters"
   ],
   "extensionDependencies": [
-      "ms-python.python"
+    "ms-python.python"
   ],
   "activationEvents": [
-      "onLanguage:python",
-      "workspaceContains:*.py",
-      "onCommand:black-py.restart"
+    "onLanguage:python",
+    "workspaceContains:*.py",
+    "onCommand:black-py.restart"
   ],
   "main": "./out/extension.js",
   "scripts": {
@@ -58,7 +58,7 @@
     "prepare": "husky install",
     "semantic-release": "semantic-release",
     "typecheck": "tsc --noEmit"
-  },  
+  },
   "devDependencies": {
     "@ryansonshine/commitizen": "^4.2.8",
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
@@ -80,7 +80,6 @@
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
     "typescript": "^4.2.4",
-    
     "@types/glob": "^7.2.0",
     "@types/mocha": "^9.1.1",
     "@types/vscode": "^1.70.0",
