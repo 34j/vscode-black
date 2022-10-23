@@ -10,7 +10,7 @@
     "url": "https://github.com/34j"
   },
   "serverInfo": {
-    "name": "Black",
+    "name": "Better Black",
     "module": "black-py"
   },
   "publisher": "mikoz",
@@ -29,7 +29,7 @@
   },
   "keywords": [
     "python",
-    "black-py"
+    "black"
   ],
   "engines": {
     "vscode": "^1.70.0"
