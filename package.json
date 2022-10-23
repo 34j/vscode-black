@@ -1,0 +1,173 @@
+{
+  "name": "black-py",
+  "displayName": "Black",
+  "description": "Format Python code with black.",
+  "version": "0.0.0-development",
+  "icon": "image/icon.png",
+  "preview": false,
+  "author": {
+    "name": "34j",
+    "url": "https://github.com/34j"
+  },
+  "serverInfo": {
+      "name": "Black",
+      "module": "black-py"
+  },
+  "publisher": "mikoz",
+  "license": "MIT",
+  "homepage": "https://github.com/34j/vscode-black",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/34j/vscode-black.git"
+  },
+  "bugs": {
+      "url": "https://github.com/34j/vscode-black/issues"
+  },
+  "galleryBanner": {
+      "color": "#1e415e",
+      "theme": "dark"
+  },
+  "keywords": [
+      "python",
+      "black-py"
+  ],
+  "engines": {
+      "vscode": "^1.70.0"
+  },
+  "categories": [
+      "Formatters"
+  ],
+  "extensionDependencies": [
+      "ms-python.python"
+  ],
+  "activationEvents": [
+      "onLanguage:python",
+      "workspaceContains:*.py",
+      "onCommand:black-py.restart"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "format-check": "prettier --check 'src/**/*.ts' 'build/**/*.yml' '.github/**/*.yml'",
+    "test": "node ./out/test/runTest.js",
+    "cm": "cz",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release",
+    "typecheck": "tsc --noEmit"
+  },  
+  "devDependencies": {
+    "@ryansonshine/commitizen": "^4.2.8",
+    "@ryansonshine/cz-conventional-changelog": "^3.3.4",
+    "@semantic-release/git": "^10.0.1",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^12.20.11",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^6.0.0",
+    "jest": "^27.2.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "semantic-release": "^19.0.2",
+    "ts-jest": "^27.0.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.2.4",
+    
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/vscode": "^1.70.0",
+    "@vscode/test-electron": "^2.1.5"
+  },
+  "dependencies": {
+    "semantic-release-vsce": "^5.2.0",
+    "vscode-python-extension-core": "^1.0.9"
+  },
+  "contributes": {
+    "configuration": [
+      {
+        "title": "Black",
+        "properties": {
+          "black-py.useIntegratedTerminal": {
+            "type": "boolean",
+            "default": false,
+            "scope": "window",
+            "description": "Whether to use integrated terminal instead of hidden terminal. (Not recommended)"
+          }
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "black-py.run",
+        "category": "Black",
+        "title": "Run black",
+        "enablement": "resourceLangId == python || explorerResourceIsFolder"
+      },
+      {
+        "command": "black-py.runForWorkspaceFolders",
+        "title": "Python: Run black For The Workspace Folders",
+        "category": "Black"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceLangId == python || explorerResourceIsFolder",
+          "command": "black-py.run",
+          "group": "2_workspace@-1"
+        }
+      ]
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/@ryansonshine/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "eslint --cache --cache-location .eslintcache --fix"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "semantic-release-vsce",
+        {
+          "packageVsix": true
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ],
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "*.vsix",
+              "label": "Extension File"
+            }
+          ]
+        }
+      ]
+    ]
+  }
+}
