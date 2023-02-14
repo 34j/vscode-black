@@ -2,7 +2,7 @@
   "name": "black-py",
   "displayName": "Black",
   "description": "Format Python code with black.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "icon": "image/icon.png",
   "preview": false,
   "author": {
