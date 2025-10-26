@@ -22,9 +22,35 @@ export function activate(context: vscode.ExtensionContext): void {
     packageInfo,
     new core.packageRunner.EasyOptionsBuilder(
       packageInfo,
-      [],
-      [],
-      [],
+      [
+        {
+          name: 'line-length',
+          type: 'number',
+          description: 'How many characters per line to allow.',
+        },
+        {
+          name: 'target-version',
+          type: 'string',
+          description: 'Python versions that should be supported by Black\'s output.',
+        },
+        {
+          name: 'skip-string-normalization',
+          type: 'boolean',
+          description: 'Don\'t normalize string quotes or prefixes.',
+        },
+        {
+          name: 'skip-magic-trailing-comma',
+          type: 'boolean',
+          description: 'Don\'t use trailing commas as a reason to split lines.',
+        },
+        {
+          name: 'preview',
+          type: 'boolean',
+          description: 'Enable potentially disruptive style changes that may be added to Black\'s main functionality in the next major release.',
+        },
+      ],
+      ['--line-length', '--target-version'],
+      ['--skip-string-normalization', '--skip-magic-trailing-comma', '--preview'],
       ['--quiet']
     )
   );

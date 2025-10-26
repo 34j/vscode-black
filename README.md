@@ -16,8 +16,13 @@ Consider using [Composite Formatter](https://marketplace.visualstudio.com/items?
 
 ## Extension Settings
 
-|Name|Description|
-|----|-----------|
-| `black-py.useIntegratedTerminal`| Whether to use integrated terminal instead of hidden terminal. (Not recommended)|
+| Name | Description | Type | Default |
+|----|-----------|------|---------|
+| `black-py.useIntegratedTerminal` | Whether to use integrated terminal instead of hidden terminal. (Not recommended) | boolean | `false` |
+| `black-py.settings.line-length` | How many characters per line to allow. | number | 88 |
+| `black-py.settings.target-version` | Python versions that should be supported by Black's output. | string | - |
+| `black-py.settings.skip-string-normalization` | Don't normalize string quotes or prefixes. | boolean | `false` |
+| `black-py.settings.skip-magic-trailing-comma` | Don't use trailing commas as a reason to split lines. | boolean | `false` |
+| `black-py.settings.preview` | Enable potentially disruptive style changes that may be added to Black's main functionality in the next major release. | boolean | `false` |
 
 <!--## Known Issues-->
