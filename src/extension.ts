@@ -26,7 +26,7 @@ export function activate(context: vscode.ExtensionContext): void {
       [],
       [],
       ['--quiet']
-    )
+    ),
   );
   disp.activate();
 }
